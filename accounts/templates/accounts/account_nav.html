@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block content %}
+
+
+<center>
+    <h1> I'm a </h1>
+</center>
+
+<button> <a href="{% url 'patient:patient_dashboard' %}"> Patient </a> </button>
+<button> <a href="{% url 'doctor:doctor_dashboard' %}"> Doctor </a> </button>
+<button> <a href="{% url 'lab_operator:labop_dashboard' %}"> Lab Operator </a> </button> {% endblock %}

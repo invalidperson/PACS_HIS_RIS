@@ -6,6 +6,8 @@ urlpatterns = [
     path("",include("home_app.urls")),
     path("accounts/",include("accounts.urls")),
     path("patient/",include("patient.urls")),
+    path("lab_operator/",include("lab_operator.urls")),
+    path("doctor/",include("doctor.urls")),
 ]
 
 from django.conf import settings

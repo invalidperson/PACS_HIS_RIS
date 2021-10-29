@@ -29,13 +29,19 @@ def login_request(request):
 			if user is not None:
 				login(request, user)
 				messages.info(request, f"You are now logged in as {username}.")
-				return redirect("patient:patient_dashboard")
+				# return redirect("patient:patient_dashboard")
+				return redirect(request.GET.get('next'))
 			else:
 				messages.error(request,"Invalid username or password.")
 		else:
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
 	return render(request=request, template_name="accounts/login.html", context={"login_form":form,"message":messages})
+
+
+
+def account_nav(request):
+	return render(request,"accounts/account_nav.html")
 
 
 def logout_request(request):
