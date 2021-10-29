@@ -5,6 +5,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include("home_app.urls")),
     path("accounts/",include("accounts.urls")),
+    path("patient/",include("patient.urls")),
 ]
 
 from django.conf import settings
