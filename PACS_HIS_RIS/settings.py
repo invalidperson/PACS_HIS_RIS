@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.conf import settings
+# from accounts.models import User
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     "patient",
     "radiological_archives",
     'crispy_forms',
+    'reset_migrations',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -90,6 +93,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+#Authentication Model
+AUTH_USER_MODEL = 'accounts.User'
 
 
 # Password validation
