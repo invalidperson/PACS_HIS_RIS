@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
+
+<center>
+    <h1 class="text-danger"> Patient Not Found! </h1>
+
+    <h2> Kindly Add this Patient To database </h2>
+</center>
+
+<div class="container">
+    <form method="POST">
+        {% csrf_token %} {{ register_form|crispy }}
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+</div>
+
+{% endblock %}

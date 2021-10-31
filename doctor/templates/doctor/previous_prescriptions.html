@@ -1,0 +1,38 @@
+{% extends "base.html" %}{% load crispy_forms_tags %} {% block content %}
+
+<h1 style="text-align: center;"> Previous Entries </h1>
+
+<div style="height: 100px;"></div>
+
+<div class="container">
+    <table width=80%>
+        <tr>
+            <th>
+                Patient Name
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+
+            </th>
+        </tr>
+        {% for entry in entries %}
+        <tr>
+            <th>
+                {{entry.patient.first_name}} {{entry.patient.last_name }}
+            </th>
+            <th>
+                {{entry.date}}
+            </th>
+            <th>
+                <button> <a href="{{ entry.get_absolute_url }}"> View </a></a></button>
+            </th>
+        </tr>
+
+
+        {% endfor %}
+    </table>
+</div>
+
+</div> {% endblock %}

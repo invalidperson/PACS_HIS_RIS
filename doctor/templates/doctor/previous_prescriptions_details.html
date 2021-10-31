@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% block content %}
+
+<center>
+    <h3> Details for prescription of {{entry.patient.first_name }} {{entry.patient.last_name }} created at: {{ entry.date }}</h3>
+</center>
+
+<table>
+    <tr>
+        <td> First Name: </td>
+        <td> {{entry.patient.first_name}} </td>
+    </tr>
+    <tr>
+        <td> Last Name: </td>
+        <td> {{entry.patient.first_name}} </td>
+    </tr>
+
+    <tr>
+        <td> Gender: </td>
+        <td> {{entry.patient.gender}} </td>
+    </tr>
+    <tr>
+        <td> Blood Group: </td>
+        <td> {{entry.patient.blood_group}} </td>
+    </tr>
+    <tr>
+        <td> Address: </td>
+        <td> {{entry.patient.address}} </td>
+    </tr>
+    <br>
+    <br>
+    <tr>
+        <td>
+            Symptoms
+        </td>
+        <td>
+            {{entry.symptoms}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Tests Given
+        </td>
+        <td>
+            {{entry.tests_given}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Treatment
+        </td>
+        <td>
+            {{entry.treatment}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Follow Up Date
+        </td>
+        <td>
+            {{entry.follow_up_date}}
+        </td>
+    </tr>
+</table>
+
+
+{% endblock %}
