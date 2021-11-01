@@ -1,66 +1,98 @@
+<style>
+    #patient_details {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    #patient_details td,
+    #patient_details th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    
+    #patient_details tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    #patient_details tr:hover {
+        background-color: #ddd;
+    }
+    
+    #patient_details th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+</style>
+
 {% extends "base.html" %} {% block content %}
 
 <center>
-    <h3> Details for prescription of {{entry.patient.first_name }} {{entry.patient.last_name }} created at: {{ entry.date }}</h3>
+    <h3 class="my-5"> Details for prescription of {{entry.patient.first_name }} {{entry.patient.last_name }} created at: {{ entry.date }}</h3>
 </center>
 
-<table>
-    <tr>
-        <td> First Name: </td>
-        <td> {{entry.patient.first_name}} </td>
-    </tr>
-    <tr>
-        <td> Last Name: </td>
-        <td> {{entry.patient.first_name}} </td>
-    </tr>
+<div class="container">
+    <table width="50%" align="center" id="patient_details">
+        <tr>
+            <td> First Name: </td>
+            <td> {{entry.patient.first_name}} </td>
+        </tr>
+        <tr>
+            <td> Last Name: </td>
+            <td> {{entry.patient.last_name}} </td>
+        </tr>
 
-    <tr>
-        <td> Gender: </td>
-        <td> {{entry.patient.gender}} </td>
-    </tr>
-    <tr>
-        <td> Blood Group: </td>
-        <td> {{entry.patient.blood_group}} </td>
-    </tr>
-    <tr>
-        <td> Address: </td>
-        <td> {{entry.patient.address}} </td>
-    </tr>
-    <br>
-    <br>
-    <tr>
-        <td>
-            Symptoms
-        </td>
-        <td>
-            {{entry.symptoms}}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Tests Given
-        </td>
-        <td>
-            {{entry.tests_given}}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Treatment
-        </td>
-        <td>
-            {{entry.treatment}}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Follow Up Date
-        </td>
-        <td>
-            {{entry.follow_up_date}}
-        </td>
-    </tr>
-</table>
+        <tr>
+            <td> Gender: </td>
+            <td> {{entry.patient.gender}} </td>
+        </tr>
+        <tr>
+            <td> Blood Group: </td>
+            <td> {{entry.patient.blood_group}} </td>
+        </tr>
+        <tr>
+            <td> Address: </td>
+            <td> {{entry.patient.address}} </td>
+        </tr>
+        <br>
+        <br>
+        <tr>
+            <td>
+                Symptoms
+            </td>
+            <td>
+                {{entry.symptoms}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tests Given
+            </td>
+            <td>
+                {{entry.tests_given}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Treatment
+            </td>
+            <td>
+                {{entry.treatment}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Follow Up Date
+            </td>
+            <td>
+                {{entry.follow_up_date}}
+            </td>
+        </tr>
+    </table>
+</div>
 
 
 {% endblock %}

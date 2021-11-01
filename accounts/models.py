@@ -10,3 +10,7 @@ class User(AbstractUser):
     blood_group = models.CharField(choices=[("A+","A+"),("A-","A-"),("B+","B+"),("B-","B-"),("AB+","AB+"),("AB-","AB-"),("O+","O+"),("O-","O-")],max_length=5)
     is_doctor = models.BooleanField(default=False,verbose_name="Is a Doctor")
     is_labop = models.BooleanField(default=False,verbose_name="Is a Lab Operator")
+
+
+    def __str__(self):
+        return self.phone

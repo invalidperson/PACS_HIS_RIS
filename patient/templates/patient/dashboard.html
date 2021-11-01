@@ -6,4 +6,6 @@
 
 <h3> Hello {{username}} </h3>
 
-<button><a href="{% url 'accounts:logout' %}"> Log Out </a></button> {% endblock %}
+<button><a href="{% url 'accounts:logout' %}"> Log Out </a></button>
+<button><a href="{% url 'patient:patient_records' %}"> Previous Medical Records </a></button>
+<button><a href="{% url 'patient:patient_rad_records' %}"> Previous Radiological Records </a></button> {% endblock %}

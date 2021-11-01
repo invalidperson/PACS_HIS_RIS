@@ -70,9 +70,17 @@ def previous_prescription(request):
     else:
         return redirect("patient:patient_dashboard")
 
-
+@login_required(login_url="/../accounts/login")
 def previous_prescriptions_details(request,id):
+    if request.user.is_doctor:
+        entry = Prescription.objects.get(id=id)
 
-    entry = Prescription.objects.get(id=id)
+        return render(request,"doctor/previous_prescriptions_details.html",{"entry":entry})
+    
+    else:
 
-    return render(request,"doctor/previous_prescriptions_details.html",{"entry":entry})
+        entry = Prescription.objects.get(id=id)
+        if entry.patient == request.user:
+            return render(request,"doctor/previous_prescriptions_details.html",{"entry":entry})
+        else:
+            return redirect("patient:patient_dashboard")

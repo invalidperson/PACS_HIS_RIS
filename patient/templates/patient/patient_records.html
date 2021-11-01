@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+
+<center>
+    <h1 class="my-5 p-5"> Patient Records of {{patient_name}} </h1>
+</center>
+
+<div class="container">
+    <table width="80%" align="center">
+        <tr>
+            <th> Doctor Name </th>
+            <th> Visit Date</th>
+            <th> View Details </th>
+
+        </tr>
+        {% for prescription in prescriptions %}
+
+
+        <tr>
+            <td> {{ prescription.doctor.first_name }} {{ prescription.doctor.last_name }} </td>
+            <td> {{ prescription.date }} </td>
+            <td> <button class="btn btn-dark"><a href="../..{{ prescription.get_absolute_url }}"> View </a></button> </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

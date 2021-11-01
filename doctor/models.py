@@ -1,12 +1,12 @@
 from django.db import models
-from django.db.models.deletion import CASCADE
+# from django.db.models.deletion import CASCADE
 from accounts.models import User
 from django.urls import reverse
 # Create your models here.
 class Prescription(models.Model):
 
-    patient = models.ForeignKey(User,on_delete=CASCADE,verbose_name="Assigned Patient")
-    doctor = models.ForeignKey(User,on_delete=CASCADE,verbose_name="Assigned Doctor",related_name="Prescription_By_Doctor")
+    patient = models.ForeignKey(User,on_delete=models.CASCADE,verbose_name="Assigned Patient")
+    doctor = models.ForeignKey(User,on_delete=models.CASCADE,verbose_name="Assigned Doctor",related_name="Prescription_By_Doctor")
     date = models.DateTimeField()
 
     symptoms = models.CharField(max_length=10000,verbose_name="Symptoms Found",blank=False,null=False)

@@ -1,15 +1,15 @@
 
 from django.urls import path
-from .views import patient_dashboard
+from .views import patient_dashboard,patient_records,patient_rad_records
 from django.contrib import admin
 
-admin.site.site_header = "PACS HIS RIS Admin"
-admin.site.site_title = "PACS HIS RIS Admin Portal"
-admin.site.index_title = "Welcome to PACS HIS RIS Admin Portal"
+
 
 app_name = "patient"
 urlpatterns = [
-    path("dashboard",patient_dashboard,name="patient_dashboard")
+    path("dashboard",patient_dashboard,name="patient_dashboard"),
+    path("patient_records",patient_records,name="patient_records"),
+    path("patient_rad_records",patient_rad_records,name="patient_rad_records"),
 ]
 
 

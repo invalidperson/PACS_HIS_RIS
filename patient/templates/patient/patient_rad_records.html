@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+
+<center>
+    <h1 class="my-5 p-5"> Radiological Records of {{patient_name}} </h1>
+</center>
+
+<div class="container">
+    <table width="50%" align="center">
+        <tr>
+            <th> Experiment Name </th>
+            <th> Visit Date</th>
+            <th> View Details </th>
+
+        </tr>
+        {% for rad_data in rad_datas %}
+
+
+        <tr>
+            <td> {{ rad_data.experiment_name }} </td>
+            <td> {{ rad_data.upload_date }} </td>
+            <td> <button class="btn btn-dark"><a href="../..{{ rad_data.get_absolute_url }}"> View </a></button> </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
