@@ -35,6 +35,8 @@ def prescribe(request):
                     follow_up_date = request.POST.get("follow_up_date")
                     prescription = Prescription(patient=patient_user,doctor=doctor,date=date,symptoms=symptoms,tests_given=tests_given,treatment=treatment,follow_up_date=follow_up_date)
                     prescription.save()
+                    
+                    return redirect("doctor:doctor_dashboard")
                 except:
                     return HttpResponse("Sorry! Something went wrong!")
 

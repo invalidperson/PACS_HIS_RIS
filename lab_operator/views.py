@@ -42,6 +42,7 @@ def upload_entry(request):
                 radiological_data = Radiological_Data(patient=patient,operator=operator,experiment_name=experiment_name,patient_history=patient_history,procedure=procedure,findings=findings,impression=impression,file=file)
 
                 radiological_data.save()
+                return redirect("lab_operator:labop_dashboard")
 
             else:
                 return redirect("doctor:patient_not_found")

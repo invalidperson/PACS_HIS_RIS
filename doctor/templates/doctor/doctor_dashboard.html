@@ -1,3 +1,4 @@
+
 {% extends "base.html" %} {% block content %}
 
 <center>
@@ -8,4 +9,4 @@
 
 <button class="btn btn-danger"><a href="{% url 'accounts:logout' %}" style="text-decoration: none;color: black;"> Log Out </a></button>
 <button class="btn btn-success"><a href="{% url 'doctor:prescribe' %}" style="text-decoration: none;color: black;"> Prescribe </a></button>
-<button class="btn btn-dark"><a href="{% url 'doctor:previous_prescription' %}" style="text-decoration: none;color: black;"> Previous Entries </a></button> {% endblock %}
+<button class="btn btn-primary"><a href="{% url 'doctor:previous_prescription' %}" style="text-decoration: none;color: black;"> Previous Entries </a></button> {% endblock %}
