@@ -30,11 +30,10 @@
 
 {% extends "base.html" %} {% block content %}
 
-<center>
-    <h3 class="my-5"> Details for prescription of {{entry.patient.first_name }} {{entry.patient.last_name }} created at: {{ entry.date }}</h3>
-</center>
+<h3 class="my-5 text-center"> Details for prescription of: <br> {{entry.patient.first_name }} {{entry.patient.last_name }} created at: {{ entry.date }}</h3>
 
-<div class="container">
+
+<div class="container card p-5 shadow bg-body rounded w-75 text-center">
     <table width="50%" align="center" id="patient_details">
         <tr>
             <td> First Name: </td>
@@ -92,7 +91,16 @@
             </td>
         </tr>
     </table>
+
+    <div class="wrap d-flex justify-content-center">
+        <button onclick="goBack()" class="btn btn-dark mt-5 rounded-pill col-md-6">Go Back</button>
+    </div>
 </div>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 
 {% endblock %}

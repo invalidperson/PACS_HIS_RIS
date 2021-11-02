@@ -1,11 +1,45 @@
+<style>
+    #prescriptions {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    #prescriptions td,
+    #prescriptions th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    
+    #prescriptions tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    #prescriptions tr:hover {
+        background-color: #ddd;
+    }
+    
+    #prescriptions th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+</style>
+
+
 {% extends "base.html" %} {% block content %}
 
 <center>
     <h1 class="my-5 p-5"> Radiological Records of {{patient_name}} </h1>
 </center>
 
-<div class="container">
-    <table width="50%" align="center">
+
+
+<div class="container card p-5 shadow bg-body rounded w-75">
+    <table width=80% id="prescriptions">
         <tr>
             <th> Experiment Name </th>
             <th> Visit Date</th>
@@ -18,11 +52,21 @@
         <tr>
             <td> {{ rad_data.experiment_name }} </td>
             <td> {{ rad_data.upload_date }} </td>
-            <td> <button class="btn btn-dark"><a href="../..{{ rad_data.get_absolute_url }}"> View </a></button> </td>
+            <td> <button class="btn btn-dark"><a href="../..{{ rad_data.get_absolute_url }}" class="text-decoration-none text-white"> View </a></button> </td>
         </tr>
 
         {% endfor %}
     </table>
+
+    <div class="wrap d-flex justify-content-center">
+        <button onclick="goBack()" class="btn btn-dark mt-5 rounded-pill col-md-6">Go Back</button>
+    </div>
 </div>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
 
 {% endblock %}

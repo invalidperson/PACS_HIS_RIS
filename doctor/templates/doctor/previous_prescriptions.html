@@ -1,16 +1,48 @@
-{% extends "base.html" %}{% load crispy_forms_tags %} {% block content %}
+<style>
+    #prescriptions {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    #prescriptions td,
+    #prescriptions th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    
+    #prescriptions tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    #prescriptions tr:hover {
+        background-color: #ddd;
+    }
+    
+    #prescriptions th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+</style>
 
-<h1 style="text-align: center;"> Previous Entries </h1>
+
+{% extends "base.html" %} {% block content %}
+
+<h1 class="text-center"> Previous Entries </h1>
 
 <div style="height: 100px;"></div>
 
-<div class="container">
-    <table width=80%>
+<div class="container card p-5 shadow bg-body rounded w-75">
+    <table width=80% id="prescriptions">
         <tr>
-            <th>
+            <th class="text-center">
                 Patient Name
             </th>
-            <th>
+            <th class="text-center">
                 Date
             </th>
             <th>
@@ -19,20 +51,29 @@
         </tr>
         {% for entry in entries %}
         <tr>
-            <th>
+            <td>
                 {{entry.patient.first_name}} {{entry.patient.last_name }}
-            </th>
-            <th>
+            </td>
+            <td>
                 {{entry.date}}
-            </th>
-            <th>
-                <button> <a href="{{ entry.get_absolute_url }}"> View </a></a></button>
-            </th>
+            </td>
+            <td class="d-flex justify-content-center">
+                <button class="btn btn-dark"> <a href="{{ entry.get_absolute_url }}" class="text-decoration-none text-light" > View </a></a></button>
+            </td>
         </tr>
 
 
         {% endfor %}
     </table>
-</div>
 
-</div> {% endblock %}
+    <div class="wrap d-flex justify-content-center">
+        <button onclick="goBack()" class="btn btn-dark mt-5 rounded-pill col-md-6">Go Back</button>
+    </div>
+</div>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+{% endblock %}

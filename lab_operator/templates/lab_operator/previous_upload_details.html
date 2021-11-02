@@ -35,7 +35,7 @@
     <h3 class="my-5"> Details for Entry of {{entry.patient.first_name }} {{entry.patient.last_name }} created at: {{ entry.upload_date }}</h3>
 </center>
 
-<div class="container">
+<div class="container card p-5 shadow bg-body rounded w-75">
     <center>
         <table id="patient_details">
             <tr>
@@ -82,11 +82,8 @@
             <tr>
                 <td> file: </td>
                 <!-- <td> {{ download_path }} </td> -->
-                <td> <button class="btn btn-dark"> <a href="/../../{{ download_path }}"> Download </a>  </button> </td>
+                <td> <button class="btn btn-dark"> <a href="/../../{{ download_path }}" class="text-decoration-none text-white"> Download </a>  </button> </td>
             </tr>
-            <br>
-            <br>
-
         </table>
     </center>
 </div>

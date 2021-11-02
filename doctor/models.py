@@ -12,7 +12,7 @@ class Prescription(models.Model):
     symptoms = models.CharField(max_length=10000,verbose_name="Symptoms Found",blank=False,null=False)
     tests_given = models.CharField(max_length=10000,verbose_name="Tests given",blank=False,null=False)
     treatment = models.CharField(max_length=10000,verbose_name="Treatment Given",blank=False,null=False)
-    follow_up_date = models.DateField(verbose_name="Date for Follow Up")
+    follow_up_date = models.DateField(verbose_name="Date for Follow Up",help_text="Please enter in YYYY-MM-DD format")
 
 
 

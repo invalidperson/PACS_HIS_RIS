@@ -1,12 +1,15 @@
+ {% extends "base.html" %} {% block content %}
 
-{% extends "base.html" %} {% block content %}
+<div class="container card p-5 shadow bg-body rounded w-75 text-center">
+    <!--Register-->
+    <h3 class="my-5"> Welcome to your dashboard Dr. {{username}}! </h3>
+    <p class=""> You can Prescribe and view your previously prescribed Records from Here. </p>
 
-<center>
-    <h1> Doctor Dashboard </h1>
-</center>
+    <div class="card-body d-flex justify-content-around mt-5">
+        <button class="btn btn-success"><a href="{% url 'doctor:prescribe' %}" style="text-decoration: none;color: black;"> Prescribe </a></button>
+        <button class="btn btn-primary"><a href="{% url 'doctor:previous_prescription' %}" style="text-decoration: none;color: black;"> Previous Entries </a></button>
+    </div>
 
-<h3> Hello {{username}} </h3>
+</div>
 
-<button class="btn btn-danger"><a href="{% url 'accounts:logout' %}" style="text-decoration: none;color: black;"> Log Out </a></button>
-<button class="btn btn-success"><a href="{% url 'doctor:prescribe' %}" style="text-decoration: none;color: black;"> Prescribe </a></button>
-<button class="btn btn-primary"><a href="{% url 'doctor:previous_prescription' %}" style="text-decoration: none;color: black;"> Previous Entries </a></button> {% endblock %}
+{% endblock %}

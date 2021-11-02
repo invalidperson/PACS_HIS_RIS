@@ -41,7 +41,34 @@ def login_request(request):
 
 
 def account_nav(request):
-	return render(request,"accounts/account_nav.html")
+	if request.method == "POST":
+		patient_form = AuthenticationForm(request, data=request.POST)
+		if patient_form.is_valid():
+			
+			username = patient_form.cleaned_data.get('username')
+			password = patient_form.cleaned_data.get('password')
+			user = authenticate(username=username, password=password)
+			if user is not None:
+				login(request, user)
+				messages.info(request, f"You are now logged in as {username}.")
+
+				if 'patient_login' in request.POST:
+					return redirect("patient:patient_dashboard")
+				elif 'doctor_login' in request.POST:
+					return redirect("doctor:doctor_dashboard")
+				elif 'operator_login' in request.POST:
+					return redirect("lab_operator:labop_dashboard")
+
+
+
+				# return redirect("patient:patient_dashboard")
+			else:
+				messages.error(request,"Invalid username or password.")
+		else:
+			messages.error(request,"Invalid username or password.")
+	else:
+		patient_form = AuthenticationForm()
+		return render(request,"accounts/account_nav.html",{"patient_form":patient_form,"message":messages})
 
 
 def logout_request(request):
